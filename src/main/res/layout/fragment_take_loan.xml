@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="24dp"
+    tools:context=".TakeLoanFragment">
+
+    <!-- 1. Top Header with Back Button as back placeholder -->
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_back_placeholder"
+        app:tint="#FFFFFF"
+        android:contentDescription="Back to Home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take a Quick Loan"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 2. Available Limit Display -->
+    <TextView
+        android:id="@+id/label_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Available Loan Limit:"
+        android:textColor="#C0C0C0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_title" />
+
+    <TextView
+        android:id="@+id/text_available_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="$1000.00"
+        android:textColor="#A5D6A7"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_limit" />
+
+    <!-- 3. Quick Preset Buttons -->
+    <TextView
+        android:id="@+id/label_presets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Quick Amounts:"
+        android:textColor="#C0C0C0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_available_limit" />
+
+    <LinearLayout
+        android:id="@+id/preset_buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@id/label_presets">
+
+        <!-- Preset Button 1: $200 -->
+        <Button
+            android:id="@+id/btn_preset_200"
+            style="@style/PresetButtonStyle"
+            android:text="$200"
+            android:layout_marginEnd="8dp" />
+
+        <!-- Preset Button 2: $500 -->
+        <Button
+            android:id="@+id/btn_preset_500"
+            style="@style/PresetButtonStyle"
+            android:text="$500"
+            android:layout_marginEnd="8dp" />
+
+        <!-- Preset Button 3: $800 -->
+        <Button
+            android:id="@+id/btn_preset_800"
+            style="@style/PresetButtonStyle"
+            android:text="$800" />
+    </LinearLayout>
+
+    <!-- 4. Amount Entry Box -->
+    <TextView
+        android:id="@+id/label_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Enter Loan Amount (USD):"
+        android:textColor="#C0C0C0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/preset_buttons_layout" />
+
+    <EditText
+        android:id="@+id/input_loan_amount"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_background"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#555555"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/label_amount" />
+
+    <!-- 5. Continue Button -->
+    <Button
+        android:id="@+id/btn_continue_loan"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="32dp"
+        android:text="Continue"
+        android:textSize="18sp"
+        android:backgroundTint="#8A63D2"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
