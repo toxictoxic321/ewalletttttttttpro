@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="24dp"
+    tools:context="com.example.ewallet.TransferFragment">
+
+    <!-- 1. Top Header with Back Button -->
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_back_placeholder"
+        app:tint="#FFFFFF"
+        android:contentDescription="Back to Home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Transfer"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 2. Transfer Type Selection (E-Wallet Bank vs. Other Bank) -->
+    <LinearLayout
+        android:id="@+id/transfer_type_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@id/header_title">
+
+        <!-- Button 1: E-Wallet Bank Transfer (Active by default) -->
+        <Button
+            android:id="@+id/btn_ewallet_transfer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="E-Wallet Transfer"
+            android:textSize="14sp"
+            android:backgroundTint="#8A63D2"
+            app:cornerRadius="10dp" />
+
+        <!-- Button 2: Other Bank Transfer (Future/Alert) -->
+        <Button
+            android:id="@+id/btn_other_bank_transfer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Other Bank"
+            android:textSize="14sp"
+            android:backgroundTint="#333333"
+            app:cornerRadius="10dp"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- 3. Recipient User ID Input -->
+    <TextView
+        android:id="@+id/label_recipient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Recipient User ID:"
+        android:textColor="#C0C0C0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_type_layout" />
+
+    <EditText
+        android:id="@+id/input_recipient_id"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_background"
+        android:hint="e.g., eliya123"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#555555"
+        app:layout_constraintTop_toBottomOf="@id/label_recipient" />
+
+    <!-- 4. Amount Input -->
+    <TextView
+        android:id="@+id/label_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Transfer Amount (USD):"
+        android:textColor="#C0C0C0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_recipient_id" />
+
+    <EditText
+        android:id="@+id/input_transfer_amount"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_background"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#555555"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/label_amount" />
+
+    <!-- 5. Description/Type Input -->
+    <TextView
+        android:id="@+id/label_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Description:"
+        android:textColor="#C0C0C0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_transfer_amount" />
+
+    <EditText
+        android:id="@+id/input_description"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/input_background"
+        android:hint="e.g., Rent, Gift, Salary"
+        android:inputType="textCapSentences"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#555555"
+        app:layout_constraintTop_toBottomOf="@id/label_description" />
+
+
+    <!-- 6. Transfer Button -->
+    <Button
+        android:id="@+id/btn_confirm_transfer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="32dp"
+        android:text="Confirm Transfer"
+        android:textSize="18sp"
+        android:backgroundTint="#8A63D2"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
